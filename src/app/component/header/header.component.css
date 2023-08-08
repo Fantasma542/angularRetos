@@ -1,0 +1,28 @@
+.padre {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(229,168,106);
+    color: white;
+    font-weight: 600;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.hijo2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    
+}
+.hijos{
+    text-decoration: none;
+    color: white;
+}
+
