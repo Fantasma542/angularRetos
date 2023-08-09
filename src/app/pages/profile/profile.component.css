@@ -1,0 +1,31 @@
+.padre{
+    background-size: cover;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    bottom: 59px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.padre2{
+    border: 2px solid red;
+    width: 400px;   
+    height: 350px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.padre3{
+    border: 2px solid red;
+    width: 400px;
+    height: 350px; 
+}
+.foto{
+    width: 100px;
+    height: 100px;
+}
