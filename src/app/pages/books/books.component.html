@@ -1,29 +1,8 @@
 <div class="padre2">
-
     <div class="book-list" *ngIf="books.length > 0; else noBooks">
-        <div *ngFor="let book of books; let i = index; let even = even" class="book-card">
-          <p>
-            Titulo: {{book.title}} 
-          </p>
-          <hr>
-          <p>
-            Author: {{book.author}}
-          </p>
-          <p>
-            Type: {{book.type}}
-          </p>
-          <p>
-            Price: {{book.price}}
-          </p>
-          <p>
-            ID: {{ book.id_book | ref}}
-          </p>
-          <div>
-            <img [src]="book.photo" alt="Foto" class="foto">
-          </div>
-          <button (click)="removeBook(i)" class="remove-button" >Remove</button>
-          <button class="comprar" [ngClass]="{ 'even-button': even, 'odd-button': !even }">Comprar</button>
-        </div>
+      <app-card *ngFor="let book of books; let i = index; let even = even"
+          [book]="book" [even]="even" (removeCard)="removeBook(i)"></app-card>
+              
       </div>
 
       <ng-template #noBooks>
@@ -37,12 +16,12 @@
 
         <h1>AÑADIR LIBRO</h1>
 
-        <input [value]="newBook.title" (input)="newBook.title = $event.target.value" placeholder="New Title" class="input-field">
+        <input [(ngModel)]="newBook.title" (input)="newBook.title = $event.target.value" placeholder="New Title" class="input-field">
 
-        <input [value]="newBook.type" (input)="newBook.type = $event.target.value" placeholder="New Type" class="input-field">
-        <input [value]="newBook.author" (input)="newBook.author = $event.target.value" placeholder="New Author" class="input-field">
-        <input [value]="newBook.price" (input)="newBook.price = $event.target.value" placeholder="New Price" class="input-field">
-        <input [value]="newBook.id_book" (input)="newBook.id_book = $event.target.value" placeholder="New Id" class="input-field">
+        <input [(ngModel)]="newBook.type"  placeholder="New Type" class="input-field">
+        <input [(ngModel)]="newBook.author"  placeholder="New Author" class="input-field">
+        <input [(ngModel)]="newBook.price" type="number"  placeholder="New Price" class="input-field">
+        <input [(ngModel)]="newBook.id_book" type="number" placeholder="New Id" class="input-field">
         <div>
           <input [src]="newBook.photo" (input)="newBook.photo = $event.target.value" placeholder="New Photo" class="input-field">
 

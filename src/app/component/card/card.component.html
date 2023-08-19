@@ -1,0 +1,26 @@
+
+  <div class="book-card" >
+    <button class="remove-card-button" (click)="onRemoveCard()">X</button>
+    <p>
+      Titulo: {{book.title}} 
+    </p>
+    <hr>
+    <p>
+      Author: {{book.author}}
+    </p>
+    <p>
+      Type: {{book.type}}
+    </p>
+    <p>
+      Price: {{book.price}}
+    </p>
+    <p>
+      ID: {{ book.id_book | ref}}
+    </p>
+    <div>
+      <img [src]="book.photo" alt="Foto" class="foto">
+    </div>
+    <button class="buy-button" [ngClass]="{'even-button': even, 'odd-button': !even}">
+      Comprar
+    </button>
+  </div>
