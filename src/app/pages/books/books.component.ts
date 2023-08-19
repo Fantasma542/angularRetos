@@ -1,19 +1,39 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Book } from 'src/app/models/book';
+import { BooksService } from 'src/app/shared/books.service';
 
 @Component({
   selector: 'app-books',
-
   templateUrl: './books.component.html',
   styleUrls: ['./books.component.css']
 })
 
-export class BooksComponent {
+export class BooksComponent implements OnInit{
+  bookNotFound: boolean = false;
+  selectedBook: Book | null = null;
+  searchId: number | undefined;
+
   books: Book[] = [
     new Book('Book 1',20, "Author 1", "Type 1", "Url 1", 1),
     new Book('Book 2', 15, "Author 2", "Type 2", "Url 2", 2),
     new Book('Book 3', 2, "Author 3", "Type 3", "Url 3", 3),
   ];
+  constructor(private booksService: BooksService){
+  }
+
+  searchBook() {
+    const book = this.booksService.getOne(this.searchId);
+    if (book) {
+      this.selectedBook = book;
+      this.bookNotFound = false;
+    } else {
+      this.selectedBook = null;
+      this.bookNotFound = true; // Aquí se establece en true cuando no se encuentra el libro
+    }
+  }
+  closeIdNotFoundError() {
+    this.bookNotFound = false;
+  }
 
   newBook: Book = new Book('', 0, '', '', '', 0); // Propiedad para rastrear el nuevo libro
 
@@ -24,9 +44,11 @@ export class BooksComponent {
   }
 
   removeBook(index: number) {
-    this.books.splice(index, 1); // Eliminar el libro en el índice especificado
+    this.booksService.delete(index);
+    this.books = this.booksService.getAll();
   }
   ngOnInit(): void {
+    this.books = this.booksService.getAll();
   }
   }
 
