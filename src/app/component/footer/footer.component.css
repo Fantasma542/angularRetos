@@ -1,7 +1,8 @@
 .padre{
     background-color: rgb(229,168,106);
-    position: absolute;
-    top: 680px;
+    position:absolute;
+    width: 100%;
+    height: 75px;
     left: 0;
     right: 0;
     bottom: 0;
