@@ -1,11 +1,13 @@
 .padre{
-    background-image: url(https://cdn.zendalibros.com/wp-content/uploads/librerias-dia.jpg);
+    background-color:  rgb(254, 198, 141);
+    text-decoration-line: underline;
+    color: white;
     background-size: cover;
     position: absolute;
     top: 60px;
     left: 0;
     right: 0;
-    bottom: 59px;
+    bottom: 75px;
     display: flex;
     flex-direction: column;
     justify-content: center;
