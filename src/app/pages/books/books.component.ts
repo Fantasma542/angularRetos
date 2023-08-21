@@ -23,9 +23,6 @@ export class BooksComponent {
     this.newBook = new Book('', 0, '', '', '', 0); // Reiniciar el objeto newBook
   }
 
-  removeBook(index: number) {
-    this.books.splice(index, 1); // Eliminar el libro en el índice especificado
-  }
   ngOnInit(): void {
   }
   }
