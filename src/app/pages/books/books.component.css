@@ -1,166 +1,166 @@
 .padre{
-    border: 2px solid red;
-    position: absolute;
-    height: 479px;
-    top: 700px;
-    left: 0;
-    right: 0;
-    bottom: 0px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
-    padding-top: 20px;
-    gap: 20px;
+  
+  border: 2px solid red;
+  position: absolute;
+  height: 479px;
+  top: 700px;
+  left: 0;
+  right: 0;
+  bottom: 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding-top: 20px;
+  gap: 20px;
 
 }
 .padrefor{
-    border: 2px solid red;
-    position: absolute;
-    right: 0;
-    left: 0;
-    top: 58px;
-    height: 640px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+background-color: rgb(254,198,141);
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 58px;
+  height: 640px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .hijo{
-    border: 2px solid red;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    color: black;
-    width: 200px;
-    height: 330px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: black;
+  width: 200px;
+  height: 330px;
 }
 .fotito{
-    width: 100%;
-    height: 150px;
+  width: 100%;
+  height: 150px;
 }
 .padre2{
-    border: 2px solid red;
-    position: absolute;
-    top: 80px;
-    right: 0;
-    left: 0;
-    height: 521px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    padding-left: 20px;
-    font-size: 1.3em;
-    flex: 1;
-    padding-bottom: 60px;
-    overflow-y: auto;
-    gap: 40px;
+background-color: rgb(254,198,141);
+  position: absolute;
+  top: 60px;
+  right: 0;
+  left: 0;
+  bottom: 75px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-left: 20px;
+  font-size: 1.3em;
+  flex: 1;
+  padding-bottom: 60px;
+  overflow-y: auto;
+  gap: 40px;
 }
 
 .padre3{
-    border: 2px solid red;
-    width: 89%;
-    display: flex;
-    justify-content: center;
-    padding-left: 20px;
+  border: 2px solid red;
+  width: 89%;
+  display: flex;
+  justify-content: center;
+  padding-left: 20px;
 }
 .boton{
-    width: 100px;
-    height: 30px;
+  width: 100px;
+  height: 30px;
 }
 
 
 #movie-list{
-    display: flex;
-    padding-left: 20px;
-    padding-right: 20px;
-    gap: 40px;  
-    flex-wrap: wrap;
+  display: flex;
+  padding-left: 20px;
+  padding-right: 20px;
+  gap: 40px;  
+  flex-wrap: wrap;
 }
 #add-movie-form {
-    
-    position: relative;
-    width: 600px;
-    background-color: rgb(255,61,61);
-    padding: 1rem;
-    border-radius: 5px;
-    margin-top: 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
+  
+  position: relative;
+  width: 600px;
+  background-color: rgb(255,61,61);
+  padding: 1rem;
+  border-radius: 5px;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
 
 #add-movie-form input{
 
-    margin-bottom: 0.5rem;
-    padding: 0.5rem;
-    width: 95%;
-    border: 1px solid #ccc;
-    border-radius: 3px;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  width: 95%;
+  border: 1px solid #ccc;
+  border-radius: 3px;
 }
 #add-movie-form button{
-    margin-bottom: 0.5rem;
-    padding: 0.5rem;
-    width: 95%;
-    border: 1px solid rgb(255,61,61);
-    border-radius: 4px;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  width: 95%;
+  border: 1px solid rgb(255,61,61);
+  border-radius: 4px;
 }
 #add-movie-form button {
-    background-color:rgb(255,84,84);
-    color: #fff;
-    cursor: pointer;
+  background-color:rgb(255,84,84);
+  color: #fff;
+  cursor: pointer;
 }
 .book-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-  
-  .book-card {
-    border: 2px solid red;
-    padding: 10px;
-    border-radius: 5px;
-    font-size: 0.9em;
-  }
-  
-  .even-card {
-    background-color: lightblue;
-  }
-  
-  .odd-card {
-    background-color: lightgreen;
-  }
-
-  .book-list {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
 }
 
 .book-card {
-  border: 1px solid #ccc;
-  padding: 30px;
-  width: 280px;
-  background-color: #f9f9f9;
+  border: 2px solid red;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 0.9em;
+}
+
+.even-card {
+  background-color: lightblue;
+}
+
+.odd-card {
+  background-color: lightgreen;
+}
+
+.book-list {
+display: flex;
+flex-wrap: wrap;
+gap: 20px;
+}
+
+.book-card {
+border: 1px solid #ccc;
+padding: 30px;
+width: 280px;
+background-color: #f9f9f9;
 }
 
 .input-field {
-  width: 100%;
-  padding: 5px;
-  margin-bottom: 10px;
+width: 100%;
+padding: 5px;
+margin-bottom: 10px;
 }
 
 .remove-button,
 .add-button {
-  background-color: #d9534f;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  cursor: pointer;
+background-color: #d9534f;
+color: white;
+border: none;
+padding: 5px 10px;
+cursor: pointer;
 }
 
 .add-button {
-  background-color: #5bc0de;
+background-color: #5bc0de;
 }
 
 
@@ -168,23 +168,25 @@
 
 
 .foto{
-  width: 300px;
-  height: 200px;
+width: 300px;
+height: 200px;
 }
 
 .no-books-message {
-  border: 1px solid #ccc;
-  padding: 10px;
-  width: 100%;
-  text-align: center;
-  background-color: #f9f9f9;
+border: 1px solid #ccc;
+padding: 10px;
+width: 100%;
+text-align: center;
+background-color: #f9f9f9;
 }
 
 .even-button {
-  background-color: #5bc0de; /* Color para posición par */
+background-color: #5bc0de;
+border-color: #5bc0de; /* Color para posición par */
 }
 
 /* Estilos para resaltar botones de posición impar */
 .odd-button {
-  background-color: #d9534f; /* Color para posición impar */
+background-color: #d9534f;
+border-color: #d9534f; /* Color para posición impar */
 }
