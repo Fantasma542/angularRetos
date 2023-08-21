@@ -1,6 +1,5 @@
 import { Component, OnInit} from '@angular/core';
-import { ActivatedRoute, } from '@angular/router';
-import { Router } from '@angular/router';
+
 import { BooksService } from 'src/app/shared/books.service';
 import { Book } from 'src/app/models/book';
 
@@ -14,11 +13,9 @@ export class UpdateBooksComponent implements OnInit{
   showEditErrorAlert: boolean = false
   bookId: number;
   book: Book = new Book('', 0, '', '', '', 0);
-  constructor(private route: ActivatedRoute, private booksService: BooksService, private router: Router) {
+  constructor(private booksService: BooksService) {
   }
   ngOnInit() {
-    this.bookId = parseInt(this.route.snapshot.paramMap.get('id'), 10);
-    this.book = this.booksService.getOne(this.bookId) || new Book('', 0, '', '', '', 0); ;
   }
   updateBook() {
     console.log('Updating book:', this.book);

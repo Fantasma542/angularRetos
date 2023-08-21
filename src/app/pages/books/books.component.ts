@@ -37,16 +37,7 @@ export class BooksComponent implements OnInit{
 
   newBook: Book = new Book('', 0, '', '', '', 0); // Propiedad para rastrear el nuevo libro
 
-  addBook() {
-    // Agregar validación si es necesario
-    this.books.push(this.newBook); // Agregar el nuevo libro a la lista
-    this.newBook = new Book('', 0, '', '', '', 0); // Reiniciar el objeto newBook
-  }
 
-  removeBook(index: number) {
-    this.booksService.delete(index);
-    this.books = this.booksService.getAll();
-  }
   ngOnInit(): void {
     this.books = this.booksService.getAll();
   }

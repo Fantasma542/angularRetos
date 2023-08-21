@@ -1,17 +1,5 @@
 <div class="padre2">
-  <div *ngIf="showSuccessAlert" class="custom-alert success">
-    {{ successMessage }}
-    <button (click)="closeSuccessAlert()">Cerrar</button>
-  </div>
-  
-  <div *ngIf="showErrorAlert" class="custom-alert error">
-    {{ errorMessage }}
-    <button (click)="closeErrorAlert()">Cerrar</button>
-  </div>
-
-  
     <div class="book-list" *ngIf="books.length > 0; else noBooks">
-              
       </div>
 
       <ng-template #noBooks>
@@ -35,7 +23,7 @@
           <input [src]="newBook.photo" (input)="newBook.photo = $event.target.value" placeholder="New Photo" class="input-field">
 
         </div>
-        <button (click)="addBook()" class="add-button">Add Book</button>
+        <button (click)="showTor()"  class="add-button">Add Book</button>
       </div>
 
 </div>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { Book } from 'src/app/models/book';
 import { BooksService } from 'src/app/shared/books.service';
 
@@ -13,26 +14,23 @@ export class AddBooksComponent {
     new Book('Book 2', 15, "Author 2", "Type 2", "Url 2", 2),
     new Book('Book 3', 2, "Author 3", "Type 3", "Url 3", 3),
   ];
-showSuccessAlert: boolean = false;
-showErrorAlert: boolean = false;
-successMessage: string = 'Libro añadido con éxito';
-errorMessage: string = 'No se pudo añadir el libro';
-  constructor(private booksService: BooksService){}
+  constructor(private booksService: BooksService, private toastr: ToastrService){
+    
+  }
 
-  newBook: Book = new Book('', 0, '', '', '', 0); // Propiedad para rastrear el nuevo libro
+  newBook: Book = new Book('', 0, '', '', '', 0);
 
   addBook() {
-    // Agregar validación si es necesario
-    this.booksService.add(this.newBook); // Agregar el nuevo libro a la lista
-    this.newBook = new Book('', 0, '', '', '', 0); // Reiniciar el objeto newBook
-    this.showSuccessAlert = true;
+
+    this.booksService.add(this.newBook); 
+    this.newBook = new Book('', 0, '', '', '', 0); 
+
+    
   }
-  closeSuccessAlert() {
-    this.showSuccessAlert = false;
+  showTor(){
+    this.toastr.success('Hola')
   }
-  closeErrorAlert() {
-    this.showErrorAlert = false;
-  }
+
   ngOnInit(): void {
   }
 
