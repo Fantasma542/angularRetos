@@ -31,7 +31,7 @@ export class BooksComponent implements OnInit{
       if (index !== -1) {
         this.hiddenBook = this.books.splice(index, 1)[0];
       }
-
+      console.log(book)
       this.selectedBook = book;
       this.bookNotFound = false;
     } else {
