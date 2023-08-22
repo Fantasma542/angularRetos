@@ -27,8 +27,7 @@ export class BooksComponent implements OnInit{
     const book = this.booksService.getOne(this.searchId);
 
     if (book) {
-      // Ocultar el libro en la lista actual
-      const index = this.books.findIndex(b => b.id_book === book.id_book);
+      const index = this.books.findIndex(b => {b.id_book === book.id_book});
       if (index !== -1) {
         this.hiddenBook = this.books.splice(index, 1)[0];
       }
@@ -41,15 +40,6 @@ export class BooksComponent implements OnInit{
     }
   }
 
-  cancelSearch() {
-    if (this.hiddenBook) {
-      this.books.push(this.hiddenBook);
-      this.hiddenBook = null;
-    }
-
-    this.selectedBook = null;
-    this.bookNotFound = false;
-  }
 
 
   closeIdNotFoundError() {
