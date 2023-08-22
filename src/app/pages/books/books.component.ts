@@ -12,6 +12,7 @@ export class BooksComponent implements OnInit{
   bookNotFound: boolean = false;
   selectedBook: Book | null = null;
   searchId: number | undefined;
+  hiddenBook: Book | null = null;
 
   books: Book[] = [
     new Book('Book 1',20, "Author 1", "Type 1", "Url 1", 1),
@@ -21,28 +22,48 @@ export class BooksComponent implements OnInit{
   constructor(private booksService: BooksService){
   }
 
+  
   searchBook() {
     const book = this.booksService.getOne(this.searchId);
+
     if (book) {
+      // Ocultar el libro en la lista actual
+      const index = this.books.findIndex(b => b.id_book === book.id_book);
+      if (index !== -1) {
+        this.hiddenBook = this.books.splice(index, 1)[0];
+      }
+
       this.selectedBook = book;
       this.bookNotFound = false;
     } else {
       this.selectedBook = null;
-      this.bookNotFound = true; // Aquí se establece en true cuando no se encuentra el libro
+      this.bookNotFound = true;
     }
   }
-  closeIdNotFoundError() {
+
+  cancelSearch() {
+    if (this.hiddenBook) {
+      this.books.push(this.hiddenBook);
+      this.hiddenBook = null;
+    }
+
+    this.selectedBook = null;
     this.bookNotFound = false;
   }
 
-  newBook: Book = new Book('', 0, '', '', '', 0); // Propiedad para rastrear el nuevo libro
 
+  closeIdNotFoundError() {
+    this.bookNotFound = false;
+  }
+  
+  newBook: Book = new Book('', 0, '', '', '', 0); // Propiedad para rastrear el nuevo libro
+  
   addBook() {
     // Agregar validación si es necesario
     this.books.push(this.newBook); // Agregar el nuevo libro a la lista
     this.newBook = new Book('', 0, '', '', '', 0); // Reiniciar el objeto newBook
   }
-
+  
   removeBook(index: number) {
     this.booksService.delete(index);
     this.books = this.booksService.getAll();
@@ -51,6 +72,7 @@ export class BooksComponent implements OnInit{
     this.books = this.booksService.getAll();
   }
   }
+  
 
 
   // const libro1 = new Book(0, 0,"Hola", "Buenas", "Author", 1, "HOlaaaa")

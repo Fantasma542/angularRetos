@@ -3,6 +3,7 @@
   <div class="search-container">
     <input type="number" [(ngModel)]="searchId" placeholder="Buscar por ID">
     <button (click)="searchBook()">Buscar</button>
+    <button (click)="cancelSearch()">Cancelar</button>
   </div>
 
   <div *ngIf="selectedBook !== null; else noResults">
