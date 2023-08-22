@@ -28,7 +28,7 @@ export class UpdateBooksComponent implements OnInit{
       this.toastr.success('Libro editado con exito')
     } else {
       // Lógica adicional en caso de fallo
-      this.toastr.error('Libro editado sin exito')
+      this.toastr.error('Libro para editar no encontrado')
     }
   }
   closeEditSuccessAlert() {

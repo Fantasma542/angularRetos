@@ -26,3 +26,14 @@
     color: white;
 }
 
+
+.hijos.active {
+    font-size: 1.3em;
+    border-bottom: 5px solid white;
+  }
+
+  .hijos:hover{
+    border-bottom: 5px solid white;
+    transition: border-bottom 300ms;
+    transform: scale(1.1);
+  }
