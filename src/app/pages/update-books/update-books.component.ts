@@ -1,8 +1,8 @@
 import { Component, OnInit} from '@angular/core';
-import { ActivatedRoute, } from '@angular/router';
-import { Router } from '@angular/router';
+
 import { BooksService } from 'src/app/shared/books.service';
 import { Book } from 'src/app/models/book';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-update-books',
@@ -14,22 +14,21 @@ export class UpdateBooksComponent implements OnInit{
   showEditErrorAlert: boolean = false
   bookId: number;
   book: Book = new Book('', 0, '', '', '', 0);
-  constructor(private route: ActivatedRoute, private booksService: BooksService, private router: Router) {
+  constructor(private booksService: BooksService, private toastr: ToastrService) {
   }
   ngOnInit() {
-    this.bookId = parseInt(this.route.snapshot.paramMap.get('id'), 10);
-    this.book = this.booksService.getOne(this.bookId) || new Book('', 0, '', '', '', 0); ;
   }
   updateBook() {
     console.log('Updating book:', this.book);
+    
   const success = this.booksService.edit(this.book);
   console.log('Update success:', success);
     if (success) {
       // Lógica adicional en caso de éxito
-      this.showEditSuccessAlert = true;
+      this.toastr.success('Libro editado con exito')
     } else {
       // Lógica adicional en caso de fallo
-      this.showEditErrorAlert = true;
+      this.toastr.error('Libro para editar no encontrado')
     }
   }
   closeEditSuccessAlert() {

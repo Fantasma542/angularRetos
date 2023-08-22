@@ -37,7 +37,11 @@
     height: 150px;
 }
 .padre2{
+<<<<<<< HEAD
   background-color: rgb(254, 198, 141);
+=======
+  background-color: rgb(254,198,141);
+>>>>>>> dia6
     position: absolute;
     top: 59px;
     right: 0;
@@ -140,7 +144,7 @@
 .book-card {
   border: 1px solid #ccc;
   padding: 30px;
-  width: 280px;
+  width: 400px;
   background-color: #f9f9f9;
 }
 

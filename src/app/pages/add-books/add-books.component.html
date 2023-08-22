@@ -1,17 +1,5 @@
 <div class="padre2">
-  <div *ngIf="showSuccessAlert" class="custom-alert success">
-    {{ successMessage }}
-    <button (click)="closeSuccessAlert()">Cerrar</button>
-  </div>
-  
-  <div *ngIf="showErrorAlert" class="custom-alert error">
-    {{ errorMessage }}
-    <button (click)="closeErrorAlert()">Cerrar</button>
-  </div>
-
-  
     <div class="book-list" *ngIf="books.length > 0; else noBooks">
-              
       </div>
 
       <ng-template #noBooks>
@@ -25,17 +13,17 @@
 
         <h1>AÑADIR LIBRO</h1>
 
-        <input [(ngModel)]="newBook.title" (input)="newBook.title = $event.target.value" placeholder="New Title" class="input-field">
+        <input [(ngModel)]="newBook.title" (input)="newBook.title = $event.target.value" placeholder="Title" class="input-field">
 
-        <input [(ngModel)]="newBook.type"  placeholder="New Type" class="input-field">
-        <input [(ngModel)]="newBook.author"  placeholder="New Author" class="input-field">
-        <input [(ngModel)]="newBook.price" type="number"  placeholder="New Price" class="input-field">
-        <input [(ngModel)]="newBook.id_book" type="number" placeholder="New Id" class="input-field">
+        <input [(ngModel)]="newBook.type"  placeholder="Type" class="input-field">
+        <input [(ngModel)]="newBook.author"  placeholder="Author" class="input-field">
+        <input [(ngModel)]="newBook.price" type="number"  placeholder="Price" class="input-field">
+        <input [(ngModel)]="newBook.id_book" type="number" placeholder="Id" class="input-field">
         <div>
           <input [src]="newBook.photo" (input)="newBook.photo = $event.target.value" placeholder="New Photo" class="input-field">
 
         </div>
-        <button (click)="addBook()" class="add-button">Add Book</button>
+        <button (click)="addBook()"  class="add-button">Add Book</button>
       </div>
 
 </div>

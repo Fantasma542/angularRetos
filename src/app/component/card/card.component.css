@@ -16,17 +16,22 @@
 
 
 
-.book-card {
-  /* Estilos de la tarjeta */
-}
 
-.remove-card-button {
-  /* Estilos del botón de eliminar */
-}
 
-.input-field {
-  /* Estilos de los campos de entrada */
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .buy-button {
   padding: 5px 10px;
@@ -119,7 +124,6 @@
     height: 150px;
 }
 .padre2{
-    border: 2px solid red;
     position: absolute;
     top: 80px;
     right: 0;
@@ -128,11 +132,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
     padding-left: 20px;
     font-size: 1.3em;
-    flex: 1;
-    padding-bottom: 60px;
     overflow-y: auto;
     gap: 40px;
 }
@@ -222,7 +223,7 @@
 .book-card {
   border: 1px solid #ccc;
   padding: 30px;
-  width: 280px;
+  width: 350px;
   background-color: #f9f9f9;
 }
 
