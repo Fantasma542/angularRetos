@@ -16,11 +16,7 @@ export class BooksComponent implements OnInit{
   hiddenBook: Book | null = null;
   hasBooks: boolean = false;
 
-  books: Book[] = [
-    new Book('Book 1',20, "Author 1", "Type 1", "Url 1", 1),
-    new Book('Book 2', 15, "Author 2", "Type 2", "Url 2", 2),
-    new Book('Book 3', 2, "Author 3", "Type 3", "Url 3", 3),
-  ];
+  books: Book[] = [];
   constructor(private booksService: BooksService, private toastr: ToastrService){
   }
 
@@ -31,6 +27,7 @@ export class BooksComponent implements OnInit{
       this.selectedBook = book;
       this.bookNotFound = false;
       this.toastr.success('Libro encontrado con éxito');
+      console.log(this.booksService)
     } else {
       this.selectedBook = null;
       this.bookNotFound = true;
