@@ -14,6 +14,7 @@ export class BooksComponent implements OnInit{
   selectedBook: Book | null = null;
   searchId: number | undefined;
   hiddenBook: Book | null = null;
+  hasBooks: boolean = false;
 
   books: Book[] = [
     new Book('Book 1',20, "Author 1", "Type 1", "Url 1", 1),
@@ -26,35 +27,41 @@ export class BooksComponent implements OnInit{
   
   searchBook() {
     const book = this.booksService.getOne(this.searchId);
-
     if (book) {
-      const index = this.books.findIndex(b => {b.id_book === book.id_book});
-      if (index !== -1) {
-        this.hiddenBook = this.books.splice(index, 1)[0];
-      }
-      console.log(book)
       this.selectedBook = book;
       this.bookNotFound = false;
-      this.toastr.success('Libro encontrado con exito')
+      this.toastr.success('Libro encontrado con éxito');
     } else {
       this.selectedBook = null;
-      this.bookNotFound = true; // Aquí se establece en true cuando no se encuentra el libro
-      this.toastr.error('Libro no encontrado')
+      this.bookNotFound = true;
+      this.toastr.error('El libro no ha sido encontrado');
     }
   }
 
-
-
-  closeIdNotFoundError() {
-    this.bookNotFound = false;
+  removeBook(book: Book) {
+    this.booksService.removeBook(book);
+    this.books = this.booksService.getAll();
+    if (this.selectedBook === book) {
+      this.selectedBook = null;
+      this.bookNotFound = false;
+    }
   }
-  
-  newBook: Book = new Book('', 0, '', '', '', 0); // Propiedad para rastrear el nuevo libro
-
-
   ngOnInit(): void {
     this.books = this.booksService.getAll();
+    this.hasBooks = this.books.length > 0; // Verificar si hay libros
   }
+
+  
+  
+  
+  get filteredBooks(): Book[] {
+    if (!this.selectedBook) {
+      return this.books;
+    } else {
+      return this.books.filter(book => book.id_book !== (this.selectedBook ? this.selectedBook.id_book : null));
+    }
+  }
+
   }
   
 

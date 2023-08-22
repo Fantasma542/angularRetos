@@ -34,5 +34,11 @@ export class BooksService {
     }
     return false;
   }   
+  removeBook(book: Book) {
+    const index = this.books.findIndex(b => b.id_book === book.id_book);
+    if (index !== -1) {
+      this.books.splice(index, 1);
+    }
+  }
 }
 
