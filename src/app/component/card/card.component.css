@@ -124,7 +124,6 @@
     height: 150px;
 }
 .padre2{
-    border: 2px solid red;
     position: absolute;
     top: 80px;
     right: 0;
@@ -133,11 +132,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
     padding-left: 20px;
     font-size: 1.3em;
-    flex: 1;
-    padding-bottom: 60px;
     overflow-y: auto;
     gap: 40px;
 }

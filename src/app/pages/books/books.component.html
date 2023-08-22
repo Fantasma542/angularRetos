@@ -5,16 +5,10 @@
     <button (click)="searchBook()">Buscar</button>
   </div>
 
-  <div *ngIf="selectedBook !== null; else noResults">
+  <div *ngIf="selectedBook !== null;">
     <app-card [book]="selectedBook" (removeCard)="removeBook(selectedBook)"></app-card>
   </div>
 
-  <ng-template #noResults>
-    <div *ngIf="bookNotFound" class="custom-alert error">
-      Libro no encontrado
-      <button (click)="closeIdNotFoundError()">Cerrar</button>
-    </div>
-  </ng-template>
 
 
 

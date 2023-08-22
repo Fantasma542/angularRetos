@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { Book } from 'src/app/models/book';
 import { BooksService } from 'src/app/shared/books.service';
 
@@ -18,7 +19,7 @@ export class BooksComponent implements OnInit{
     new Book('Book 2', 15, "Author 2", "Type 2", "Url 2", 2),
     new Book('Book 3', 2, "Author 3", "Type 3", "Url 3", 3),
   ];
-  constructor(private booksService: BooksService){
+  constructor(private booksService: BooksService, private toastr: ToastrService){
   }
 
   searchBook() {
@@ -26,9 +27,11 @@ export class BooksComponent implements OnInit{
     if (book) {
       this.selectedBook = book;
       this.bookNotFound = false;
+      this.toastr.success('Libro encontrado con exito')
     } else {
       this.selectedBook = null;
       this.bookNotFound = true; // Aquí se establece en true cuando no se encuentra el libro
+      this.toastr.error('Libro no encontrado')
     }
   }
   closeIdNotFoundError() {

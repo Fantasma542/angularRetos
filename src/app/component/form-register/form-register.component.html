@@ -4,7 +4,7 @@
             
         </div>
         <div class="padre3">
-            <form [formGroup]="myForm">
+            <form [formGroup]="myForm" class="myForm">
                 <div class="form-group">
                     <label>Nombre</label>
                     <input type="text" class="form-control" formControlName="nombre" [ngClass]="{ 'is-invalid': (myForm.get('nombre').dirty || myForm.get('nombre').touched) && !myForm.get('nombre').valid}">
