@@ -1,0 +1,54 @@
+<div class="padre2">
+
+  <div class="search-container">
+    <input type="number" [(ngModel)]="searchId" placeholder="Buscar por ID">
+    <button (click)="searchBook()">Buscar</button>
+    <button (click)="cancelSearch()">Cancelar</button>
+  </div>
+
+  <div *ngIf="selectedBook !== null; else noResults">
+    <app-card [book]="selectedBook" (removeCard)="removeBook(selectedBook)"></app-card>
+  </div>
+
+  <ng-template #noResults>
+    <div *ngIf="bookNotFound" class="custom-alert error">
+      Libro no encontrado
+      <button (click)="closeIdNotFoundError()">Cerrar</button>
+    </div>
+  </ng-template>
+
+
+
+    <div class="book-list" *ngIf="books.length > 0; else noBooks">
+      <app-card *ngFor="let book of books; let i = index; let even = even"
+          [book]="book" [even]="even" (removeCard)="removeBook(i)"></app-card>
+              
+      </div>
+
+      <ng-template #noBooks>
+        <div class="book-list">
+          <div class="no-books-message">
+            No hay libros disponibles.
+          </div>
+        </div>
+      </ng-template>
+
+</div>
+
+
+
+
+
+
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    

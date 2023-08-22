@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -8,6 +9,12 @@ import { FooterComponent } from './component/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
 import { FormRegisterComponent } from './component/form-register/form-register.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { BooksComponent } from './pages/books/books.component';
+import { RefPipe } from './pipes/ref.pipe';
+import { CardComponent } from './component/card/card.component';
+import { AddBooksComponent } from './pages/add-books/add-books.component';
+import { UpdateBooksComponent } from './pages/update-books/update-books.component';
 
 @NgModule({
   declarations: [
@@ -17,10 +24,17 @@ import { RegisterComponent } from './pages/register/register.component';
     HomeComponent,
     FormRegisterComponent,
     RegisterComponent,
+    ProfileComponent,
+    BooksComponent,
+    RefPipe,
+    CardComponent,
+    AddBooksComponent,
+    UpdateBooksComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,28 @@
+
+<div class="padre2">
+<div *ngIf="showEditSuccessAlert" class="custom-alert success">
+  Libro editado con éxito
+  <button (click)="closeEditSuccessAlert()">Cerrar</button>
+</div>
+<div *ngIf="showEditErrorAlert" class="custom-alert error">
+  No se encontró el libro para editar
+  <button (click)="closeEditErrorAlert()">Cerrar</button>
+</div>
+
+
+    <div class="book-card">
+<div class="add-book-form">
+  <h1>EDITAR LIBRO</h1>
+    <input [(ngModel)]="book.title" placeholder="Title" class="input-field">
+    <input [(ngModel)]="book.type" placeholder="Type" class="input-field">
+    <input [(ngModel)]="book.author" placeholder="Author" class="input-field">
+    <input [(ngModel)]="book.photo" placeholder="Photo" class="input-field">
+    <input [(ngModel)]="book.price" type="number" placeholder="Price" class="input-field">
+    <input [(ngModel)]="book.id_book" type="number" placeholder="Id" class="input-field">
+    
+    <button (click)="updateBook()" class="add-button">Update Book</button>
+  </div>
+  </div>
+</div>
+
+
