@@ -24,8 +24,8 @@ export class AddBooksComponent {
 
     this.booksService.add(this.newBook); 
     this.newBook = new Book('', 0, '', '', '', 0); 
+    console.log(this.booksService);
     this.toastr.success('Libro añadido con exito');
-    console.log(this.newBook);
 
     
   }
