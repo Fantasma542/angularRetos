@@ -37,11 +37,12 @@
     height: 150px;
 }
 .padre2{
+  background-color: rgb(254,198,141);
     position: absolute;
-    top: 80px;
+    top: 59px;
     right: 0;
     left: 0;
-    height: 521px;
+    bottom: 75px;
     display: flex;
     justify-content: center;
     align-items: center;
