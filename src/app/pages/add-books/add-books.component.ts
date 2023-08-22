@@ -21,26 +21,12 @@ export class AddBooksComponent {
   newBook: Book = new Book('', 0, '', '', '', 0);
 
   addBook() {
-<<<<<<< HEAD
-    // Agregar validación si es necesario
-    this.booksService.add(this.newBook); // Agregar el nuevo libro a la lista
-    this.newBook = new Book('', 0, '', '', '', 0); // Reiniciar el objeto newBook
-    this.showSuccessAlert = true;
-    console.log(this.newBook)
-  }
-  closeSuccessAlert() {
-    this.showSuccessAlert = false;
-  }
-  closeErrorAlert() {
-    this.showErrorAlert = false;
-=======
 
     this.booksService.add(this.newBook); 
     this.newBook = new Book('', 0, '', '', '', 0); 
     this.toastr.success('Libro añadido con exito')
 
     
->>>>>>> dia6
   }
 
   ngOnInit(): void {

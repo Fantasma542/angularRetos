@@ -38,12 +38,8 @@ export class BooksComponent implements OnInit{
       this.toastr.success('Libro encontrado con exito')
     } else {
       this.selectedBook = null;
-<<<<<<< HEAD
-      this.bookNotFound = true;
-=======
       this.bookNotFound = true; // Aquí se establece en true cuando no se encuentra el libro
       this.toastr.error('Libro no encontrado')
->>>>>>> dia6
     }
   }
 
@@ -54,22 +50,8 @@ export class BooksComponent implements OnInit{
   }
   
   newBook: Book = new Book('', 0, '', '', '', 0); // Propiedad para rastrear el nuevo libro
-<<<<<<< HEAD
-  
-  addBook() {
-    // Agregar validación si es necesario
-    this.books.push(this.newBook); // Agregar el nuevo libro a la lista
-    this.newBook = new Book('', 0, '', '', '', 0); // Reiniciar el objeto newBook
-  }
-  
-  removeBook(index: number) {
-    this.booksService.delete(index);
-    this.books = this.booksService.getAll();
-  }
-=======
 
 
->>>>>>> dia6
   ngOnInit(): void {
     this.books = this.booksService.getAll();
   }
