@@ -24,11 +24,9 @@ export class AddBooksComponent {
 
     this.booksService.add(this.newBook); 
     this.newBook = new Book('', 0, '', '', '', 0); 
+    this.toastr.success('Hola')
 
     
-  }
-  showTor(){
-    this.toastr.success('Hola')
   }
 
   ngOnInit(): void {
