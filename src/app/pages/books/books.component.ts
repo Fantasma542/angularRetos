@@ -10,11 +10,11 @@ import { BooksService } from 'src/app/shared/books.service';
 })
 
 export class BooksComponent implements OnInit{
-  bookNotFound: boolean = false;
-  selectedBook: Book | null = null;
-  searchId: number | undefined;
-  hiddenBook: Book | null = null;
-  hasBooks: boolean = false;
+  bookNotFound: boolean;
+  selectedBook: Book;
+  searchId: number;
+  hiddenBook: Book;
+  hasBooks: boolean;
 
   books: Book[] = [];
   constructor(private booksService: BooksService, private toastr: ToastrService){
@@ -45,7 +45,7 @@ export class BooksComponent implements OnInit{
   }
   ngOnInit(): void {
     this.books = this.booksService.getAll();
-    this.hasBooks = this.books.length > 0; // Verificar si hay libros
+    this.hasBooks = this.books.length > 0;
   }
 
   

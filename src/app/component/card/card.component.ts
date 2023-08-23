@@ -9,14 +9,12 @@ import { BooksService } from 'src/app/shared/books.service';
   styleUrls: ['./card.component.css']
 })
 export class CardComponent {
-  @Input() book: Book; // Datos del libro recibidos del componente padre
-  @Input() even: boolean; // Variable para indicar si es posición par
+  @Input() book: Book; 
+  @Input() even: boolean; 
  
-  @Output() removeCard = new EventEmitter<void>(); // Evento para eliminar la tarjetaeta
+  @Output() removeCard = new EventEmitter<void>();
   
   constructor(private booksService: BooksService) {}
-
-  // Función para emitir el evento de eliminación al componente padre
   onRemoveCard() {
     this.booksService.delete(this.book.id_book);
   }

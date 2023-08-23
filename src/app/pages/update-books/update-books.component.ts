@@ -10,8 +10,6 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./update-books.component.css']
 })
 export class UpdateBooksComponent implements OnInit{
-  showEditSuccessAlert: boolean = false;
-  showEditErrorAlert: boolean = false
   bookId: number;
   book: Book = new Book('', null, '', '', '', null);
   constructor(private booksService: BooksService, private toastr: ToastrService) {
@@ -19,32 +17,14 @@ export class UpdateBooksComponent implements OnInit{
   ngOnInit() {
   }
   updateBook() {
-    console.log('Updating book:', this.book);
+    console.log('Libro actualizado:', this.book);
     
   const success = this.booksService.edit(this.book);
   console.log('Update success:', success);
     if (success) {
-      // Lógica adicional en caso de éxito
       this.toastr.success('Libro editado con exito')
     } else {
-      // Lógica adicional en caso de fallo
       this.toastr.error('Libro para editar no encontrado')
     }
   }
-  closeEditSuccessAlert() {
-    this.showEditSuccessAlert = false;
-  }
-  closeEditErrorAlert() {
-    this.showEditErrorAlert = false;
-  }
 }
-
-// interface Book {
-//   title: string;
-//   price: number;
-//   author: string;
-//   type: string;
-//   url: string;
-
-//   id: number;
-// }
