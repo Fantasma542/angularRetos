@@ -13,7 +13,7 @@ export class BooksService {
   getAll(): Book[] {
     return this.books;
   }
-  getOne(id_libro: number): Book | undefined {
+  getOne(id_libro: number): Book {
     return this.books.find(book => book.id_book === id_libro);
   }
   add(book: Book): void {
