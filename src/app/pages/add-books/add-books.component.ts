@@ -18,7 +18,7 @@ export class AddBooksComponent {
     
   }
 
-  newBook: Book = new Book('', 0, '', '', '', 0);
+  newBook: Book = new Book('', null, '', '', '', null);
 
   addBook() {
 

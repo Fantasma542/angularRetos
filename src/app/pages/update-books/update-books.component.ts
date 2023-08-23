@@ -13,7 +13,7 @@ export class UpdateBooksComponent implements OnInit{
   showEditSuccessAlert: boolean = false;
   showEditErrorAlert: boolean = false
   bookId: number;
-  book: Book = new Book('', 0, '', '', '', 0);
+  book: Book = new Book('', null, '', '', '', null);
   constructor(private booksService: BooksService, private toastr: ToastrService) {
   }
   ngOnInit() {
