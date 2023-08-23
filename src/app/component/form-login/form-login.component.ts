@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Login } from 'src/app/models/login';
 
 @Component({
   selector: 'app-form-login',
@@ -6,5 +8,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./form-login.component.css']
 })
 export class FormLoginComponent {
-
+  public login: Login
+  constructor(){
+    this.login =new Login()
+  }
+  onSubmit(form:NgForm){
+    console.log(form.value);
+    console.log(this.login);
+    
+  }
 }
