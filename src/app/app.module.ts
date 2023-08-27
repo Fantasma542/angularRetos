@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,6 +20,8 @@ import { UpdateBooksComponent } from './pages/update-books/update-books.componen
 import { LoginComponent } from './pages/login/login.component';
 import { FormLoginComponent } from './component/form-login/form-login.component';
 import { ToastrModule } from 'ngx-toastr';
+import { MostrarBookComponent } from './component/mostrar-book/mostrar-book.component';
+import { InsertarBookComponent } from './component/insertar-book/insertar-book.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +39,8 @@ import { ToastrModule } from 'ngx-toastr';
     UpdateBooksComponent,
     LoginComponent,
     FormLoginComponent,
+    MostrarBookComponent,
+    InsertarBookComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,6 +49,7 @@ import { ToastrModule } from 'ngx-toastr';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
