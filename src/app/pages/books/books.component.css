@@ -190,3 +190,23 @@ border-color: #5bc0de; /* Color para posición par */
 background-color: #d9534f;
 border-color: #d9534f; /* Color para posición impar */
 }
+
+
+.show-button{
+  top: 59px;
+  position: absolute;
+}
+.pepito{
+  top: 100px;
+  position: absolute;
+  
+}
+
+.padrastro{
+  top: 300px;
+  position: absolute;
+}
+.cartas{
+  top: 50px;
+  position: relative;
+}

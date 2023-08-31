@@ -20,9 +20,6 @@ import { UpdateBooksComponent } from './pages/update-books/update-books.componen
 import { LoginComponent } from './pages/login/login.component';
 import { FormLoginComponent } from './component/form-login/form-login.component';
 import { ToastrModule } from 'ngx-toastr';
-import { MostrarBookComponent } from './component/mostrar-book/mostrar-book.component';
-import { InsertarBookComponent } from './component/insertar-book/insertar-book.component';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,9 +35,7 @@ import { InsertarBookComponent } from './component/insertar-book/insertar-book.c
     AddBooksComponent,
     UpdateBooksComponent,
     LoginComponent,
-    FormLoginComponent,
-    MostrarBookComponent,
-    InsertarBookComponent,
+    FormLoginComponent
   ],
   imports: [
     BrowserModule,

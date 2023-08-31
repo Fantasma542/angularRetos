@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { Book } from 'src/app/models/book';
+import { Respuesta } from 'src/app/models/respuesta';
 import { BooksService } from 'src/app/shared/books.service';
 
 @Component({
@@ -10,21 +11,28 @@ import { BooksService } from 'src/app/shared/books.service';
 })
 export class AddBooksComponent {
   books: Book[] = [
-    new Book('Book 1',20, "Author 1", "Type 1", "Url 1", 1),
-    new Book('Book 2', 15, "Author 2", "Type 2", "Url 2", 2),
-    new Book('Book 3', 2, "Author 3", "Type 3", "Url 3", 3),
+    
   ];
   constructor(private booksService: BooksService, private toastr: ToastrService){
     
   }
 
-  newBook: Book = new Book('', null, '', '', '', null);
-
-  addBook() {
-
-    this.booksService.add(this.newBook); 
-    this.newBook = new Book('', null, '', '', '', null); 
-    console.log(this.newBook);
+  addBook(title: string, price: number, author: string, type: string, photo: string, id_book: number,) {
+    const newBook = new Book(title, price, author, type, photo, id_book);
+    this.booksService.add(newBook).subscribe((resp: Respuesta)=>{
+      if (!resp.error) {
+        alert("Libro insertado");
+        title= ""
+        price= null
+        author= ""
+        type= ""
+        photo= ""
+        id_book= null
+        console.log(newBook)
+      } else {
+        alert("El libro ya existe");
+      }
+    }); 
     this.toastr.success('Libro añadido con exito');
 
     

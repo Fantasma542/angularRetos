@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { Book } from 'src/app/models/book';
+import { Respuesta } from 'src/app/models/respuesta';
 import { BooksService } from 'src/app/shared/books.service';
 
 @Component({
@@ -10,52 +11,41 @@ import { BooksService } from 'src/app/shared/books.service';
 })
 
 export class BooksComponent implements OnInit{
-  bookNotFound: boolean;
-  selectedBook: Book;
-  searchId: number;
-  hiddenBook: Book;
-  hasBooks: boolean;
-
+  mostrandoLibros: boolean = false;
   books: Book[] = [];
-  constructor(private booksService: BooksService, private toastr: ToastrService){
+  bookId: number 
+  selectedBook: Book
+  constructor(private apiService: BooksService, private toastr: ToastrService){
   }
 
-  
-  searchBook() {
-    const book = this.booksService.getOne(this.searchId);
-    if (book) {
-      this.selectedBook = book;
-      this.bookNotFound = false;
-      this.toastr.success('Libro encontrado con éxito');
-      console.log(book)
-    } else {
-      this.selectedBook = null;
-      this.bookNotFound = true;
-      this.toastr.error('El libro no ha sido encontrado');
-    }
-  }
 
-  removeBook(book: Book) {
-    this.booksService.removeBook(book);
-    this.books = this.booksService.getAll();
-    if (this.selectedBook === book) {
-      this.selectedBook = null;
-      this.bookNotFound = false;
-    }
-  }
   ngOnInit(): void {
-    this.books = this.booksService.getAll();
-    this.hasBooks = this.books.length > 0;
   }
-
+  mostrarLibros() {
+    this.apiService.getAll().subscribe((resp:Respuesta)=>{
+    console.log(resp)
+    if(resp.error){
+      this.toastr.warning("El libbro no existe.", "",{timeOut: 2000, positionClass: "toast-top"})
+      this.mostrandoLibros = false
+    }else {
+      this.apiService.books = resp.data
+      this.mostrandoLibros = true;
+      console.log(resp.data)
+    }
+  })
   
-  
-  
-  get filteredBooks(): Book[] {
-    if (!this.selectedBook) {
-      return this.books;
-    } else {
-      return this.books.filter(book => book.id_book !== (this.selectedBook ? this.selectedBook.id_book : null));
+  }
+  buscarLibro() {
+    this.selectedBook = null;
+    if (this.bookId > 0) {
+      this.apiService.getOne(this.bookId).subscribe((resp: Respuesta) => {
+        if (resp.error) {
+          this.toastr.error("El libro no existe.", "", { timeOut: 2000, positionClass: "toast-top" });
+          this.selectedBook = null; 
+        } else {
+          this.selectedBook = resp.data[0];
+        }
+      });
     }
   }
 

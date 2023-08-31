@@ -1,29 +1,19 @@
 <div class="padre2">
-    <div class="book-list" *ngIf="books.length > 0; else noBooks">
-      </div>
-
-      <ng-template #noBooks>
-        <div class="book-list">
-          <div class="no-books-message">
-            No hay libros disponibles.
-          </div>
-        </div>
-      </ng-template>
-      <div class="book-card">
-
+ <div>
         <h1>AÑADIR LIBRO</h1>
 
-        <input [(ngModel)]="newBook.title" (input)="newBook.title = $event.target.value" placeholder="Title" class="input-field">
+        <input #title placeholder="Title" class="input-field">
 
-        <input [(ngModel)]="newBook.type"  placeholder="Type" class="input-field">
-        <input [(ngModel)]="newBook.author"  placeholder="Author" class="input-field">
-        <input [(ngModel)]="newBook.price" type="number"  placeholder="Price" class="input-field">
-        <input [(ngModel)]="newBook.id_book" type="number" placeholder="Id" class="input-field">
-        <div>
+        <input #price type="number"  placeholder="Price" class="input-field">
+        <input #author  placeholder="Author" class="input-field">
+        <input #type  placeholder="Type" class="input-field">
+        <input #photo type="number" placeholder="Photo" class="input-field">
+        <input #id_book type="number" placeholder="Id" class="input-field">
+        <!-- <div>
           <input [src]="newBook.photo" (input)="newBook.photo = $event.target.value" placeholder="New Photo" class="input-field">
 
-        </div>
-        <button (click)="addBook()"  class="add-button">Add Book</button>
+        </div> -->
+        <button (click)="addBook(title.value,price.value,author.value,type.value,photo.value,id_book.value)"  class="add-button">Add Book</button>
       </div>
 
 </div>
