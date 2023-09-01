@@ -1,9 +1,55 @@
 <div class="padre2">
   <div class="search-container">
     <input type="number" [(ngModel)]="searchId" placeholder="Buscar por ID">
-    <button (click)="searchBook()">Buscar</button>
-  </div>
 
+    
+    <button (click)="searchBook(searchId)">Buscar</button>
+    <!-- <div *ngIf="libros2">
+      <div class="book-details">
+        <h3>Detalles del Libro</h3>
+        <p><strong>Título:</strong> {{ books.title }}</p>
+        <p><strong>Tipo:</strong> {{ books.type }}</p>
+        <p><strong>Autor:</strong> {{ books.author }}</p>
+        <p><strong>Precio:</strong> {{ books.price }}</p>
+        <p><strong>ID del Libro:</strong> {{ books.id_book }}</p>
+        <p><strong>Imagen:</strong> {{ books.photo }}</p>
+        
+      </div>
+    </div> -->
+
+  </div>
+  <!-- <button (click)="loadBooks()">{{ book.title }} - {{ book.price }} - {{ book.author }}- {{ book.type }} - {{ book.photo }} - {{ book.id_book }}</button> -->
+
+    <ul>
+      <li *ngFor="let book of books">{{ book.title }} - {{ book.price }} - {{ book.author }}- {{ book.type }} - {{ book.photo }} - {{ book.id_book }}
+        <button (click)="deleteBook(book.id_book)">X</button>
+      </li>
+    </ul>
+ 
+
+
+
+  
+  
+</div>
+
+  
+  <!-- <ng-template #noBooks>
+    <div class="no-books-message">
+      No hay libros disponibles.
+    </div>
+  </ng-template> -->
+
+
+
+
+
+
+
+
+
+
+<!-- 
   <ng-container *ngIf="selectedBook; else bookList">
     <app-card [book]="selectedBook" (removeCard)="removeBook(selectedBook)"></app-card>
   </ng-container>
@@ -13,16 +59,16 @@
       <app-card *ngFor="let book of books; let i = index; let even = even"
           [book]="book" [even]="even" (removeCard)="removeBook(i)"></app-card>
     </div>
-  </ng-template>
+  </ng-template> -->
 
-  <ng-template #noBooks>
+  <!-- <ng-template #noBooks>
     <div class="book-list">
       <div class="no-books-message">
         No hay libros disponibles.
       </div>
     </div>
   </ng-template>
-</div>
+</div> -->
 
 
 

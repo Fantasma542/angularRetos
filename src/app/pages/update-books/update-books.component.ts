@@ -3,6 +3,8 @@ import { Component, OnInit} from '@angular/core';
 import { BooksService } from 'src/app/shared/books.service';
 import { Book } from 'src/app/models/book';
 import { ToastrService } from 'ngx-toastr';
+import { Respuesta } from 'src/app/models/respuesta';
+import { ActivatedRoute, Route } from '@angular/router';
 
 @Component({
   selector: 'app-update-books',
@@ -11,20 +13,26 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class UpdateBooksComponent implements OnInit{
   bookId: number;
-  book: Book = new Book('', null, '', '', '', null);
-  constructor(private booksService: BooksService, private toastr: ToastrService) {
+  books: Book[] = [
+  ];
+  bookUpdate: Book = {
+    title: "",
+    price: null,
+    author: "",
+    type: "",
+    photo: "",
+    id_book: null
+  }
+  constructor(private route: ActivatedRoute, private apiService: BooksService, private toastr: ToastrService) {
   }
   ngOnInit() {
   }
   updateBook() {
-    console.log('Libro actualizado:', this.book);
     
-  const success = this.booksService.edit(this.book);
-  console.log('Update success:', success);
-    if (success) {
-      this.toastr.success('Libro editado con exito')
-    } else {
-      this.toastr.error('Libro para editar no encontrado')
-    }
+    this.apiService.edit(this.bookUpdate).subscribe(() => {
+      console.log('Libro agregado:');
+      this.toastr.success("libro añadido")
+    });
+
   }
-}
+  }

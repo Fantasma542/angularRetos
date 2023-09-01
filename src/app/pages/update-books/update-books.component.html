@@ -1,20 +1,41 @@
 
-<div class="padre2">
+<!-- <div class="padre2"> -->
 
-
+  <div class="padre2">
     <div class="book-card">
-<div class="add-book-form">
-  <h1>EDITAR LIBRO</h1>
-    <input [(ngModel)]="book.title" placeholder="New Title" class="input-field">
-    <input [(ngModel)]="book.type" placeholder="New Type" class="input-field">
-    <input [(ngModel)]="book.author" placeholder="New Author" class="input-field">
-    <input [(ngModel)]="book.photo" placeholder="New Photo" class="input-field">
-    <input [(ngModel)]="book.price" type="number" placeholder="New Price" class="input-field">
-    <input [(ngModel)]="book.id_book" type="number" placeholder="Id" class="input-field">
+      <h2>Agregar Nuevo Libro</h2>
+      <input id="title" [(ngModel)]="bookUpdate.title" placeholder="Título del libro" class="input-field">
     
-    <button (click)="updateBook()" class="add-button">Update Book</button>
-  </div>
-  </div>
+      <input id="type" [(ngModel)]="bookUpdate.type" placeholder="Tipo del libro"  class="input-field">
+    
+      <input id="author" [(ngModel)]="bookUpdate.author" placeholder="Autor del libro"  class="input-field">
+    
+      <input id="price" [(ngModel)]="bookUpdate.price" placeholder="Precio del libro" type="number"  class="input-field">
+    
+      <input id="id_book" [(ngModel)]="bookUpdate.id_book" placeholder="ID del libro" type="number"  class="input-field">
+    
+      <input id="photo" [(ngModel)]="bookUpdate.photo" placeholder="Foto del libro"  class="input-field">
+    
+      <button (click)="updateBook()" class="add-button">Agregar Libro</button>
+    </div>
+
 </div>
 
 
+<!-- </div> -->
+
+
+
+<!-- <div class="book-card">
+  <div class="add-book-form">
+  <h3>Actualizar Libro</h3>
+  <label>ID del Libro: <input type="number" [(ngModel)]="bookId" class="input-field"></label><br>
+  <label>Título: <input type="text" [(ngModel)]="books.title" class="input-field"></label><br>
+  <label>Tipo: <input type="text" [(ngModel)]="books.type" class="input-field"></label><br>
+  <label>Autor: <input type="text" [(ngModel)]="books.author" class="input-field"></label><br>
+  <label>Precio: <input type="number" [(ngModel)]="books.price" class="input-field"></label><br>
+  <label>Id: <input type="number" [(ngModel)]="book.id_book" class="input-field"></label><br>
+  <label>Imagen: <input type="text" [(ngModel)]="books.photo" class="input-field"></label><br>
+  <button (click)="updateBook()" class="add-button">Actualizar</button>
+</div>
+</div> -->

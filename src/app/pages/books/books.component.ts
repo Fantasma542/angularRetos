@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { Book } from 'src/app/models/book';
+import { Respuesta } from 'src/app/models/respuesta';
 import { BooksService } from 'src/app/shared/books.service';
 
 @Component({
@@ -10,54 +11,60 @@ import { BooksService } from 'src/app/shared/books.service';
 })
 
 export class BooksComponent implements OnInit{
-  bookNotFound: boolean;
-  selectedBook: Book;
-  searchId: number;
-  hiddenBook: Book;
-  hasBooks: boolean;
-
-  books: Book[] = [];
-  constructor(private booksService: BooksService, private toastr: ToastrService){
+  libros2 = false;
+  books: Book[];
+  searchId: number
+  constructor(private apiService: BooksService, private toastr: ToastrService){
+    this.apiService.getAll().subscribe((resp: Respuesta) => {
+      this.books = resp.data;
+      console.log(this.books)
+    });
   }
+
+
 
   
-  searchBook() {
-    const book = this.booksService.getOne(this.searchId);
-    if (book) {
-      this.selectedBook = book;
-      this.bookNotFound = false;
-      this.toastr.success('Libro encontrado con éxito');
-      console.log(book)
-    } else {
-      this.selectedBook = null;
-      this.bookNotFound = true;
-      this.toastr.error('El libro no ha sido encontrado');
+  searchBook(id_book:number) {
+    console.log(id_book)
+    if(id_book)
+      this.apiService.getOne(id_book).subscribe((resp: Respuesta) => {
+          this.books = [resp.data_book];
+          console.log(resp)
+          console.log(resp.data_book)
+          console.log('Libro encontrado:', this.books);
+          
+        } 
+       
+      );
+    else{
+      this.apiService.getAll().subscribe((resp: Respuesta)=>{
+        this.books = resp.data
+        console.log(this.books)
+      })
     }
   }
 
-  removeBook(book: Book) {
-    this.booksService.removeBook(book);
-    this.books = this.booksService.getAll();
-    if (this.selectedBook === book) {
-      this.selectedBook = null;
-      this.bookNotFound = false;
-    }
+
+
+  deleteBook(bookId: number): void {
+    this.apiService.delete(bookId).subscribe((resp:Respuesta)=>{
+      this.books = resp.data
+      console.log(this.books)
+      console.log(resp)
+    })
   }
+
+
+
+  
   ngOnInit(): void {
-    this.books = this.booksService.getAll();
-    this.hasBooks = this.books.length > 0;
+
   }
 
   
   
   
-  get filteredBooks(): Book[] {
-    if (!this.selectedBook) {
-      return this.books;
-    } else {
-      return this.books.filter(book => book.id_book !== (this.selectedBook ? this.selectedBook.id_book : null));
-    }
-  }
+
 
   }
   

@@ -10,11 +10,8 @@ import { BooksService } from 'src/app/shared/books.service';
 })
 export class AddBooksComponent {
   books: Book[] = [
-    new Book('Book 1',20, "Author 1", "Type 1", "Url 1", 1),
-    new Book('Book 2', 15, "Author 2", "Type 2", "Url 2", 2),
-    new Book('Book 3', 2, "Author 3", "Type 3", "Url 3", 3),
   ];
-  constructor(private booksService: BooksService, private toastr: ToastrService){
+  constructor(private apiService: BooksService, private toastr: ToastrService){
     
   }
 
@@ -22,10 +19,10 @@ export class AddBooksComponent {
 
   addBook() {
 
-    this.booksService.add(this.newBook); 
-    this.newBook = new Book('', null, '', '', '', null); 
-    console.log(this.newBook);
-    this.toastr.success('Libro añadido con exito');
+    this.apiService.add(this.newBook).subscribe((addedBook: Book) => {
+      console.log('Libro agregado:', addedBook);
+      this.toastr.success("libro añadido")
+    });
 
     
   }

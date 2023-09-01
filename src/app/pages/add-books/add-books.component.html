@@ -1,29 +1,19 @@
 <div class="padre2">
-    <div class="book-list" *ngIf="books.length > 0; else noBooks">
-      </div>
-
-      <ng-template #noBooks>
-        <div class="book-list">
-          <div class="no-books-message">
-            No hay libros disponibles.
-          </div>
-        </div>
-      </ng-template>
       <div class="book-card">
-
-        <h1>AÑADIR LIBRO</h1>
-
-        <input [(ngModel)]="newBook.title" (input)="newBook.title = $event.target.value" placeholder="Title" class="input-field">
-
-        <input [(ngModel)]="newBook.type"  placeholder="Type" class="input-field">
-        <input [(ngModel)]="newBook.author"  placeholder="Author" class="input-field">
-        <input [(ngModel)]="newBook.price" type="number"  placeholder="Price" class="input-field">
-        <input [(ngModel)]="newBook.id_book" type="number" placeholder="Id" class="input-field">
-        <div>
-          <input [src]="newBook.photo" (input)="newBook.photo = $event.target.value" placeholder="New Photo" class="input-field">
-
-        </div>
-        <button (click)="addBook()"  class="add-button">Add Book</button>
+        <h2>Agregar Nuevo Libro</h2>
+        <input id="title" [(ngModel)]="newBook.title" placeholder="Título del libro" class="input-field">
+      
+        <input id="type" [(ngModel)]="newBook.type" placeholder="Tipo del libro"  class="input-field">
+      
+        <input id="author" [(ngModel)]="newBook.author" placeholder="Autor del libro"  class="input-field">
+      
+        <input id="price" [(ngModel)]="newBook.price" placeholder="Precio del libro" type="number"  class="input-field">
+      
+        <input id="id_book" [(ngModel)]="newBook.id_book" placeholder="ID del libro" type="number"  class="input-field">
+      
+        <input id="photo" [(ngModel)]="newBook.photo" placeholder="Foto del libro"  class="input-field">
+      
+        <button (click)="addBook()" class="add-button">Agregar Libro</button>
       </div>
 
 </div>
