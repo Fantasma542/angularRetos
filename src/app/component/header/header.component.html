@@ -1,13 +1,14 @@
 <header class="padre">
     <h1 class="hijo1">MyBooks</h1>
     <div class="hijo2">
-        <a routerLink="/home" class="hijos" routerLinkActive="active">HOME</a>
-        <a routerLink="/register" class="hijos" routerLinkActive="active">REGISTER</a>
-        <a routerLink="/profile" class="hijos" routerLinkActive="active">PROFILE</a>
-        <a routerLink="/books" class="hijos" routerLinkActive="active">BOOKS</a>
-        <a routerLink="/addBooks" class="hijos" routerLinkActive="active">ADDBOOK</a>
-        <a routerLink="/updateBooks" class="hijos" routerLinkActive="active">UPDATEBOOKS</a>
-        <a routerLink="/login" class="hijos" routerLinkActive="active">LOGIN</a>
-    </div>
+        <a *ngIf="!isLoggedIn" routerLink="/home" class="hijos" routerLinkActive="active">HOME</a>
+        <a *ngIf="!isLoggedIn" routerLink="/login" class="hijos" routerLinkActive="active">LOGIN</a>
+        <a *ngIf="!isLoggedIn" routerLink="/register" class="hijos" routerLinkActive="active">REGISTER</a>
 
+        <a *ngIf="isLoggedIn" routerLink="/books" class="hijos" routerLinkActive="active">BOOKS</a>
+        <a *ngIf="isLoggedIn" routerLink="/updateBooks" class="hijos" routerLinkActive="active">UPDATEBOOKS</a>
+        <a *ngIf="isLoggedIn" routerLink="/addBooks" class="hijos" routerLinkActive="active">ADDBOOK</a>
+        <a *ngIf="isLoggedIn" routerLink="/profile" class="hijos" routerLinkActive="active">PROFILE</a>
+        </div>
 </header>
+

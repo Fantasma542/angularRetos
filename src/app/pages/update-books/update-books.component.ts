@@ -4,7 +4,7 @@ import { BooksService } from 'src/app/shared/books.service';
 import { Book } from 'src/app/models/book';
 import { ToastrService } from 'ngx-toastr';
 import { Respuesta } from 'src/app/models/respuesta';
-import { ActivatedRoute, Route } from '@angular/router';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-update-books',
@@ -21,18 +21,25 @@ export class UpdateBooksComponent implements OnInit{
     author: "",
     type: "",
     photo: "",
-    id_book: null
+    id_book: null,
+    id_user: null
   }
-  constructor(private route: ActivatedRoute, private apiService: BooksService, private toastr: ToastrService) {
+  constructor(private route: ActivatedRoute, private apiService: BooksService, private toastr: ToastrService, private router: Router) {
   }
   ngOnInit() {
   }
-  updateBook() {
-    
-    this.apiService.edit(this.bookUpdate).subscribe(() => {
-      console.log('Libro agregado:');
-      this.toastr.success("libro añadido")
-    });
-
+  updateBook(): void {
+    this.apiService.edit(this.bookUpdate).subscribe(
+      () => {
+        console.log('Libro actualizado:');
+        this.toastr.success('Libro actualizado');
+        // Redirigir a la página de detalles del libro actualizado
+        this.router.navigate(['/books']);
+      },
+      (error) => {
+        console.error('Error al actualizar el libro:', error);
+        this.toastr.error('Error al actualizar el libro');
+      }
+    );
   }
   }

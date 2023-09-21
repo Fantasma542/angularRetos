@@ -115,7 +115,12 @@ background-color: rgb(254,198,141);
   flex-wrap: wrap;
   gap: 20px;
 }
-
+.padreBook{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-wrap: wrap;
+}
 .book-card {
   border: 2px solid red;
   padding: 10px;

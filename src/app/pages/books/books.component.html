@@ -1,44 +1,35 @@
 <div class="padre2">
   <div class="search-container">
     <input type="number" [(ngModel)]="searchId" placeholder="Buscar por ID">
-
-    
-    <button (click)="searchBook(searchId)">Buscar</button>
-    <!-- <div *ngIf="libros2">
-      <div class="book-details">
-        <h3>Detalles del Libro</h3>
-        <p><strong>Título:</strong> {{ books.title }}</p>
-        <p><strong>Tipo:</strong> {{ books.type }}</p>
-        <p><strong>Autor:</strong> {{ books.author }}</p>
-        <p><strong>Precio:</strong> {{ books.price }}</p>
-        <p><strong>ID del Libro:</strong> {{ books.id_book }}</p>
-        <p><strong>Imagen:</strong> {{ books.photo }}</p>
-        
-      </div>
-    </div> -->
-
+    <button (click)="searchBook()">Buscar</button>
   </div>
-  <!-- <button (click)="loadBooks()">{{ book.title }} - {{ book.price }} - {{ book.author }}- {{ book.type }} - {{ book.photo }} - {{ book.id_book }}</button> -->
-
-    <ul>
-      <li *ngFor="let book of books">{{ book.title }} - {{ book.price }} - {{ book.author }}- {{ book.type }} - {{ book.photo }} - {{ book.id_book }}
-        <button (click)="deleteBook(book.id_book)">X</button>
-      </li>
-    </ul>
- 
 
 
+  <ul *ngIf="!isSearching" class="padreBook">
+    <li *ngFor="let book of libros" class="book-card">TITLE: {{ book.title }} - PRICE: {{ book.price }}€ - AUTHOR: {{ book.author }} -  TYPE: {{ book.type }} - {{ book.photo }} - ID: {{ book.id_book }}
+      <button (click)="deleteBook(book.id_book)">X</button>
+    </li>
+  </ul>
 
-  
-  
+  <ul *ngIf="isSearching">
+    <li *ngFor="let book of libros3" class="padreBook">TITLE: {{ book.title }} - PRICE: {{ book.price }}€ - AUTHOR: {{ book.author }} - TYPE: {{ book.type }} - {{ book.photo }} - ID: {{ book.id_book }}
+      <button (click)="deleteBook(book.id_book)">X</button>
+    </li>
+  </ul>
 </div>
 
-  
-  <!-- <ng-template #noBooks>
-    <div class="no-books-message">
-      No hay libros disponibles.
-    </div>
-  </ng-template> -->
+
+
+
+<!-- 
+- {{ book.id_user }} -->
+
+
+<!-- <ng-template #noBooks>
+  <div class="no-books-message">
+    No hay libros disponibles.
+  </div>
+</ng-template> -->
 
 
 
@@ -53,14 +44,14 @@
   <ng-container *ngIf="selectedBook; else bookList">
     <app-card [book]="selectedBook" (removeCard)="removeBook(selectedBook)"></app-card>
   </ng-container>
-
+  
   <ng-template #bookList>
     <div class="book-list" *ngIf="books.length > 0; else noBooks">
       <app-card *ngFor="let book of books; let i = index; let even = even"
-          [book]="book" [even]="even" (removeCard)="removeBook(i)"></app-card>
+      [book]="book" [even]="even" (removeCard)="removeBook(i)"></app-card>
     </div>
   </ng-template> -->
-
+  
   <!-- <ng-template #noBooks>
     <div class="book-list">
       <div class="no-books-message">
@@ -74,20 +65,32 @@
 
 
 
+
+
+<!-- <div *ngIf="libros2">
+  <div class="book-details">
+    <h3>Detalles del Libro</h3>
+    <p><strong>Título:</strong> {{ books.title }}</p>
+    <p><strong>Tipo:</strong> {{ books.type }}</p>
+    <p><strong>Autor:</strong> {{ books.author }}</p>
+    <p><strong>Precio:</strong> {{ books.price }}</p>
+    <p><strong>ID del Libro:</strong> {{ books.id_book }}</p>
+    <p><strong>Imagen:</strong> {{ books.photo }}</p>
     
-    
-    
-    
-    
-    
+  </div>
+</div> -->
+
+
+
     
     
 
-    <!-- </ng-template>
-      <ng-template #noBooks>
-        <div class="book-list">
-          <div class="no-books-message">
-            No hay libros disponibles.
-          </div>
-        </div>
-      </ng-template> -->
+
+<!-- </ng-template>
+  <ng-template #noBooks>
+    <div class="book-list">
+      <div class="no-books-message">
+        No hay libros disponibles.
+      </div>
+    </div>
+  </ng-template> -->

@@ -1,21 +1,24 @@
 <div class="padre">
-    <div class="padre2">
-        <img [src]="user.photo" alt="Foto" class="foto">
-        <div>{{user.name}} {{user.last_name}}</div>
-        <div>Nombre: {{user.name}}</div>
-        <div>Apellidos: {{user.last_name}}</div>
-        <div>Email: {{user.email}}</div>
+    <div class="padre2" *ngIf="loggedInUser">
+        <img [src]="loggedInUser.photo" alt="Foto" class="foto">
+        <div>{{loggedInUser.name}} {{loggedInUser.last_name}}</div>
+        <div>Nombre: {{loggedInUser.name}}</div>
+        <div>Apellidos: {{loggedInUser.last_name}}</div>
+        <div>Email: {{loggedInUser.email}}</div>
         
         
     </div>
     <div class="padre3">
         <div class="padre2">
             <div>EDITAR</div>
-            <input type="text" placeholder="Nombre" #input1>
-            <input type="text" placeholder="Apellidos" #input2>
-            <input type="text" placeholder="Correo" #input3>
-            <input type="text" placeholder="Url" #input4>
-            <button (click)=enviar1(input1) (click)=enviar2(input2) (click)=enviar3(input3) (click)=enviar4(input4)>Modificar</button>  
+            <input type="text" placeholder="Nombre" [(ngModel)]="loggedInUser.name">
+<input type="text" placeholder="Apellidos" [(ngModel)]="loggedInUser.last_name">
+<input type="text" placeholder="Correo" [(ngModel)]="loggedInUser.email">
+<input type="text" placeholder="Url" [(ngModel)]="loggedInUser.photo">
+            <button (click)="modificarPerfil(loggedInUser.name, loggedInUser.last_name, loggedInUser.email, loggedInUser.photo)">Modificar</button>  
         </div>
     </div>
+    <!-- <div class="padre2" *ngIf="!user">
+        <p>No has iniciado sesión.</p>
+      </div> -->
 </div>
